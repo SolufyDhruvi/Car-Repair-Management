@@ -1,0 +1,99 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:part_name",
+ "creation": "2025-05-12 14:04:43.201624",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "part_name",
+  "part_number",
+  "category",
+  "description",
+  "column_break_hwfw",
+  "stock_quantity",
+  "unit_cost",
+  "supplier",
+  "status"
+ ],
+ "fields": [
+  {
+   "fieldname": "part_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Part Name",
+   "unique": 1
+  },
+  {
+   "fieldname": "part_number",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Part Number"
+  },
+  {
+   "fieldname": "category",
+   "fieldtype": "Link",
+   "label": "Category ",
+   "options": "Category"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Description "
+  },
+  {
+   "fieldname": "stock_quantity",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Stock Quantity"
+  },
+  {
+   "fieldname": "unit_cost",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Unit Cost"
+  },
+  {
+   "fieldname": "supplier",
+   "fieldtype": "Link",
+   "label": "Supplier ",
+   "options": "Supplier"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status ",
+   "options": "\nAvailable\nOut of Stock\nOrdered"
+  },
+  {
+   "fieldname": "column_break_hwfw",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-05-12 14:23:12.066764",
+ "modified_by": "Administrator",
+ "module": "car_repair_management",
+ "name": "Parts",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

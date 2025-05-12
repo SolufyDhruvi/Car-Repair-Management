@@ -1,0 +1,365 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2025-05-12 12:33:06.135919",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "customer_details_section",
+  "customer_name",
+  "mobile_number",
+  "column_break_ydxb",
+  "email_address",
+  "address",
+  "existing_customer",
+  "section_break_drof",
+  "license_plate",
+  "make",
+  "column_break_dvze",
+  "model",
+  "fuel_type",
+  "pre_and_post_service_review_section",
+  "pre_check_list",
+  "column_break_sncm",
+  "post_check_list",
+  "pre_check_list_section",
+  "vehicle_condition_summary",
+  "odometer_reading",
+  "engine_status",
+  "brake_condition",
+  "column_break_tkik",
+  "oil_level",
+  "body_damage",
+  "tyre_condition",
+  "battery_status",
+  "before_image",
+  "post_check_list_section",
+  "final_condition_summary",
+  "work_completed_properly",
+  "delivery_date_and_time",
+  "column_break_lflp",
+  "issues_still_remaining",
+  "post_repair_images",
+  "cleaned_and_ready_for_delivery",
+  "road_test_done",
+  "customer_acknowledgment",
+  "mechanic_review_tab",
+  "is_vehicle_repairable",
+  "mechanic_suggestions",
+  "suggested_repairs_tab",
+  "suggested_repairs"
+ ],
+ "fields": [
+  {
+   "fieldname": "customer_name",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Customer Name",
+   "options": "Customer"
+  },
+  {
+   "fieldname": "customer_details_section",
+   "fieldtype": "Section Break",
+   "label": "Customer Details"
+  },
+  {
+   "fieldname": "section_break_drof",
+   "fieldtype": "Section Break",
+   "label": "Vehicle Details"
+  },
+  {
+   "fieldname": "license_plate",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "License Plate",
+   "options": "Vehicle"
+  },
+  {
+   "fetch_from": "license_plate.make",
+   "fieldname": "make",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Make"
+  },
+  {
+   "fetch_from": "license_plate.model",
+   "fieldname": "model",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Model"
+  },
+  {
+   "fetch_from": "license_plate.fuel_type",
+   "fieldname": "fuel_type",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Fuel Type"
+  },
+  {
+   "fieldname": "column_break_dvze",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "mobile_number",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Mobile Number"
+  },
+  {
+   "fieldname": "email_address",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Email Address"
+  },
+  {
+   "fieldname": "address",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Address",
+   "options": "Address"
+  },
+  {
+   "default": "0",
+   "fieldname": "existing_customer",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Existing Customer?",
+   "options": "yes"
+  },
+  {
+   "fieldname": "column_break_ydxb",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "pre_and_post_service_review_section",
+   "fieldtype": "Section Break",
+   "label": "Pre and Post Service Review"
+  },
+  {
+   "default": "0",
+   "fieldname": "pre_check_list",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Pre Check List"
+  },
+  {
+   "default": "0",
+   "fieldname": "post_check_list",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Post Check List"
+  },
+  {
+   "fieldname": "column_break_sncm",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "pre_check_list_section",
+   "fieldtype": "Section Break",
+   "label": "Pre Check List "
+  },
+  {
+   "depends_on": "eval:doc.pre_check_list",
+   "fieldname": "vehicle_condition_summary",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Vehicle Condition Summary"
+  },
+  {
+   "depends_on": "eval:doc.pre_check_list",
+   "fieldname": "odometer_reading",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Odometer Reading"
+  },
+  {
+   "depends_on": "eval:doc.pre_check_list",
+   "fieldname": "engine_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Engine Status",
+   "options": "\nOK\nMinor Issue\nMajor Issue"
+  },
+  {
+   "depends_on": "eval:doc.pre_checklist",
+   "fieldname": "brake_condition",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Brake Condition",
+   "options": "\nGood\nWorn\nNeeds Replacement"
+  },
+  {
+   "depends_on": "eval:doc.pre_check_list",
+   "fieldname": "oil_level",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Oil Level",
+   "options": "\nFull\nMedium\nLow"
+  },
+  {
+   "depends_on": "eval:doc.pre_check_list",
+   "fieldname": "body_damage",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Body Damage"
+  },
+  {
+   "depends_on": "eval:doc.pre_check_list",
+   "fieldname": "tyre_condition",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Tyre Condition",
+   "options": "\nGood\nWorn\nDamaged"
+  },
+  {
+   "depends_on": "eval:doc.pre_check_list",
+   "fieldname": "battery_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Battery Status",
+   "options": "\nGood\nWeak\nNeeds Replacement"
+  },
+  {
+   "fieldname": "column_break_tkik",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "post_check_list_section",
+   "fieldtype": "Section Break",
+   "label": "Post Check List"
+  },
+  {
+   "depends_on": "eval:doc.post_check_list",
+   "fieldname": "final_condition_summary",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Final Condition Summary"
+  },
+  {
+   "depends_on": "eval:doc.post_check_list",
+   "fieldname": "work_completed_properly",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Work Completed Properly?",
+   "options": "\nYes\nPartially\nNo"
+  },
+  {
+   "default": "0",
+   "depends_on": "eval:doc.post_check_list",
+   "fieldname": "road_test_done",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Road Test Done?"
+  },
+  {
+   "depends_on": "eval:doc.post_check_list",
+   "fieldname": "issues_still_remaining",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Issues Still Remaining"
+  },
+  {
+   "default": "0",
+   "depends_on": "eval:doc.post_check_list",
+   "fieldname": "cleaned_and_ready_for_delivery",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Cleaned and Ready for Delivery?"
+  },
+  {
+   "depends_on": "eval:doc.post_check_list",
+   "fieldname": "delivery_date_and_time",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Delivery Date and Time"
+  },
+  {
+   "depends_on": "eval:doc.post_check_list",
+   "fieldname": "post_repair_images",
+   "fieldtype": "Attach Image",
+   "label": "Post Repair Images"
+  },
+  {
+   "default": "0",
+   "depends_on": "eval:doc.post_check_list",
+   "fieldname": "customer_acknowledgment",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Customer Acknowledgment"
+  },
+  {
+   "fieldname": "column_break_lflp",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.pre_check_list",
+   "fieldname": "before_image",
+   "fieldtype": "Attach",
+   "in_list_view": 1,
+   "label": "Before Image"
+  },
+  {
+   "fieldname": "mechanic_review_tab",
+   "fieldtype": "Tab Break",
+   "label": "Mechanic Review"
+  },
+  {
+   "fieldname": "is_vehicle_repairable",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Is Vehicle Repairable?",
+   "options": "\nYes\nNo\nNeed Discussion"
+  },
+  {
+   "fieldname": "mechanic_suggestions",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Mechanic Suggestions"
+  },
+  {
+   "fieldname": "suggested_repairs_tab",
+   "fieldtype": "Tab Break",
+   "label": "Suggested Repairs"
+  },
+  {
+   "fieldname": "suggested_repairs",
+   "fieldtype": "Table",
+   "label": "Suggested Repairs",
+   "options": "Suggested Repairs"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Naming Series",
+   "options": "COF.-"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-05-12 16:02:05.728210",
+ "modified_by": "Administrator",
+ "module": "car_repair_management",
+ "name": "Customer Order Form",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
