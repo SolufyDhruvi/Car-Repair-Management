@@ -20,7 +20,7 @@
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Part ",
-   "options": "Parts"
+   "options": "Item"
   },
   {
    "fieldname": "quantity",
@@ -29,7 +29,6 @@
    "label": "Quantity "
   },
   {
-   "fetch_from": "part.status",
    "fieldname": "status",
    "fieldtype": "Data",
    "in_list_view": 1,
@@ -63,7 +62,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2025-05-12 14:58:51.648299",
+ "modified": "2025-05-12 18:01:50.490654",
  "modified_by": "Administrator",
  "module": "car_repair_management",
  "name": "Suggested Repairs",

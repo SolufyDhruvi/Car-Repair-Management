@@ -1,0 +1,132 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:subject",
+ "creation": "2025-05-14 15:03:05.589203",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "subject",
+  "priority",
+  "date_of_receipt",
+  "column_break_svgr",
+  "customer_name",
+  "mobile_number",
+  "email_address",
+  "section_break_kwlr",
+  "car_details",
+  "section_break_bxtd",
+  "timesheet_info",
+  "section_break_dncf",
+  "service_checklist_info",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "subject",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Subject",
+   "unique": 1
+  },
+  {
+   "fieldname": "priority",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Priority",
+   "options": "\nLow\nMedium\nHigh\nUrgent"
+  },
+  {
+   "fieldname": "date_of_receipt",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date of Receipt"
+  },
+  {
+   "fieldname": "customer_name",
+   "fieldtype": "Link",
+   "label": "Customer Name",
+   "options": "Customer"
+  },
+  {
+   "fieldname": "mobile_number",
+   "fieldtype": "Data",
+   "label": "Mobile Number"
+  },
+  {
+   "fieldname": "email_address",
+   "fieldtype": "Data",
+   "label": "Email Address"
+  },
+  {
+   "fieldname": "column_break_svgr",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_kwlr",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "car_details",
+   "fieldtype": "Table",
+   "label": "Car Details",
+   "options": "Car Details"
+  },
+  {
+   "fieldname": "section_break_dncf",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "service_checklist_info",
+   "fieldtype": "Table",
+   "label": "Service Checklist Info",
+   "options": "Service Checklist Info"
+  },
+  {
+   "fieldname": "section_break_bxtd",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "timesheet_info",
+   "fieldtype": "Table",
+   "label": "Timesheet Info",
+   "options": "Timesheet Info"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Car Diagnosis",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-05-14 15:23:54.475266",
+ "modified_by": "Administrator",
+ "module": "car_repair_management",
+ "name": "Car Diagnosis",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

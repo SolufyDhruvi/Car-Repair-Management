@@ -26,12 +26,14 @@
   "post_check_list",
   "pre_check_list_section",
   "vehicle_condition_summary",
+  "list_of_damage",
   "odometer_reading",
   "engine_status",
-  "brake_condition",
+  "reapir_for_reason",
   "column_break_tkik",
   "oil_level",
   "body_damage",
+  "brake_condition",
   "tyre_condition",
   "battery_status",
   "before_image",
@@ -49,7 +51,11 @@
   "is_vehicle_repairable",
   "mechanic_suggestions",
   "suggested_repairs_tab",
-  "suggested_repairs"
+  "suggested_repairs",
+  "service_type_tab",
+  "service_type_table",
+  "product_type_tab",
+  "product_type_table"
  ],
  "fields": [
   {
@@ -335,11 +341,47 @@
    "in_list_view": 1,
    "label": "Naming Series",
    "options": "COF.-"
+  },
+  {
+   "depends_on": "eval:doc.pre_checklist",
+   "fieldname": "list_of_damage",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "List of Damage"
+  },
+  {
+   "depends_on": "eval:doc.pre_checklist",
+   "fieldname": "reapir_for_reason",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Reapir for Reason"
+  },
+  {
+   "fieldname": "service_type_tab",
+   "fieldtype": "Tab Break",
+   "label": "Service Type"
+  },
+  {
+   "fieldname": "product_type_tab",
+   "fieldtype": "Tab Break",
+   "label": "Product Type"
+  },
+  {
+   "fieldname": "service_type_table",
+   "fieldtype": "Table",
+   "label": "Service Type Table",
+   "options": "Service Type Table"
+  },
+  {
+   "fieldname": "product_type_table",
+   "fieldtype": "Table",
+   "label": "Product Type Table",
+   "options": "Product Type Table"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-05-12 16:02:05.728210",
+ "modified": "2025-05-14 16:38:08.739022",
  "modified_by": "Administrator",
  "module": "car_repair_management",
  "name": "Customer Order Form",
