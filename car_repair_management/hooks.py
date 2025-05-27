@@ -26,7 +26,7 @@ app_license = "mit"
 
 # include js, css files in header of desk.html
 # app_include_css = "/assets/car_repair_management/css/car_repair_management.css"
-# app_include_js = "/assets/car_repair_management/js/car_repair_management.js"
+# app_include_js = "/assets/car_repair_management/js/car_appointment_calendar.js"
 
 # include js, css files in header of web template
 # web_include_css = "/assets/car_repair_management/css/car_repair_management.css"
@@ -44,8 +44,10 @@ app_license = "mit"
 
 # include js in doctype views
 doctype_js = {"Job Card" : "car_repair_management/customization/job_card.js",
-              "Sales Order":"car_repair_management/customization/sales_order/sales_order.js"}
-              
+			  "Sales Order":"car_repair_management/customization/sales_order/sales_order.js",
+			  "Task":"car_repair_management/customization/task/task.js",
+              "Customer":"car_repair_management/customization/customer/customer.js" }
+			  
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
@@ -139,13 +141,23 @@ doctype_js = {"Job Card" : "car_repair_management/customization/job_card.js",
 # ---------------
 # Hook on document methods and events
 
-# doc_events = {
-# 	"*": {
-# 		"on_update": "method",
-# 		"on_cancel": "method",
-# 		"on_trash": "method"
-# 	}
-# }
+doc_events = {
+	"Sales Order": {
+		# "before_insert": "car_repair_management.car_repair_management.customization.sales_order.sales_order.map_pre_checklist_to_sales_order",
+		"on_submit": "car_repair_management.car_repair_management.customization.sales_order.sales_order.sales_order_on_submit"
+	},
+	"Task": {
+		"on_update": "car_repair_management.car_repair_management.customization.task.task.on_task_update"
+	},
+	"Sales Invoice":{
+		"before_save":"car_repair_management.car_repair_management.customization.sales_invoice.sales_invoice.post_check_list_fatch"
+	}
+	# "*": {
+	# 	"on_update": "method",
+	# 	"on_cancel": "method",
+	# 	"on_trash": "method"
+	# }
+}
 
 # Scheduled Tasks
 # ---------------
@@ -177,7 +189,8 @@ doctype_js = {"Job Card" : "car_repair_management/customization/job_card.js",
 # ------------------------------
 #
 # override_whitelisted_methods = {
-# 	"frappe.desk.doctype.event.event.get_events": "car_repair_management.event.get_events"
+#     "erpnext.selling.doctype.sales_order.sales_order.update_items": "car_repair_management.car_repair_management.customization.task.task.custom_update_items"
+# 	# "frappe.desk.doctype.event.event.get_events": "car_repair_management.event.get_events"
 # }
 #
 # each overriding function accepts a `data` argument;

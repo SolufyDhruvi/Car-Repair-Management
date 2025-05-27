@@ -1,36 +1,29 @@
 {
  "actions": [],
  "allow_rename": 1,
- "creation": "2025-05-14 16:32:11.165800",
+ "creation": "2025-05-21 11:35:22.106670",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "service_item",
-  "service_name",
+  "item_code",
+  "item_name",
   "qty",
+  "column_break_frvk",
   "rate",
-  "column_break_xgmr",
-  "amount",
   "description"
  ],
  "fields": [
   {
-   "fieldname": "service_item",
+   "fieldname": "item_code",
    "fieldtype": "Link",
-   "in_list_view": 1,
-   "label": "Service Item",
+   "label": "Item Code\t",
    "options": "Item"
-  },
-  {
-   "fieldname": "description",
-   "fieldtype": "Small Text",
-   "label": "Description"
   },
   {
    "fieldname": "qty",
    "fieldtype": "Float",
-   "label": "qty"
+   "label": "Qty"
   },
   {
    "fieldname": "rate",
@@ -38,29 +31,28 @@
    "label": "Rate"
   },
   {
-   "fieldname": "amount",
-   "fieldtype": "Currency",
-   "label": "Amount"
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description "
   },
   {
-   "fieldname": "column_break_xgmr",
+   "fieldname": "column_break_frvk",
    "fieldtype": "Column Break"
   },
   {
-   "fetch_from": "service_item.item_name",
-   "fieldname": "service_name",
+   "fetch_from": "item_code.item_name",
+   "fieldname": "item_name",
    "fieldtype": "Data",
-   "label": "Service_Name",
-   "read_only": 1
+   "label": "Item_Name"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2025-05-27 10:53:42.064057",
+ "modified": "2025-05-27 11:03:31.896024",
  "modified_by": "Administrator",
  "module": "car_repair_management",
- "name": "Service Type Table",
+ "name": "Task Item Used",
  "owner": "Administrator",
  "permissions": [],
  "sort_field": "modified",

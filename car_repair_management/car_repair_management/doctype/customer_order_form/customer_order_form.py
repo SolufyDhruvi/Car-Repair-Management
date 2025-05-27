@@ -12,10 +12,10 @@ class CustomerOrderForm(Document):
 def make_quotation_from_customer_order(source_name, target_doc=None):
 
     def post_process(source, target):
-        # From service_type_table
         for service in source.service_type_table:
             target.append("items", {
                 "item_code": service.service_item,
+                "item_name": service.service_name,
                 "description": service.description or "",
                 "qty": service.qty or 1,
                 "uom": "Nos",
@@ -23,10 +23,10 @@ def make_quotation_from_customer_order(source_name, target_doc=None):
                 "item_name": service.service_item,
             })
 
-        # From product_type_table
         for product in source.product_type_table:
             target.append("items", {
                 "item_code": product.product_item,
+                "item_name": product.product_name,
                 "description": product.description or "",
                 "qty": product.qty or 1,
                 "uom": "Nos",

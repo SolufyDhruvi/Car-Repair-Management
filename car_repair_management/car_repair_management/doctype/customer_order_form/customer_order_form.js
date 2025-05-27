@@ -1,23 +1,7 @@
 // Copyright (c) 2025, Dhruvi Soliya and contributors
 // For license information, please see license.txt
 
-// frappe.ui.form.on("Customer Order Form", {
-// 	refresh(frm) {
 
-// 	},
-// });
-
-// frappe.ui.form.on('Customer Order Form', {
-// 	refresh(frm) {
-// 		frm.add_custom_button("Quotation", function() {
-// 			frappe.model.with_doctype('Quotation', function() {
-// 				let doc = frappe.model.get_new_doc('Quotation');
-// 				doc.party_name = frm.doc.customer_name;
-// 				frappe.set_route('Form', 'Quotation', doc.name);
-// 			});
-// 		});
-// 	}
-// });
 
 frappe.ui.form.on('Customer Order Form', {
     refresh(frm) {
@@ -38,26 +22,34 @@ frappe.ui.form.on('Customer Order Form', {
     }
 });
 
-
+//filter --> product type table and service type table and mechanic name(service manager)
 frappe.ui.form.on('Customer Order Form', {
     onload: function(frm) {
+        frm.set_query('mechanic_name', function() {
+            return {
+                filters: {
+                    custom_is_service_manager: 1 
+                }
+            };
+        });
         frm.fields_dict['service_type_table'].grid.get_field('service_item').get_query = function(doc, cdt, cdn) {
             return {
                 filters: {
-                    custom_is_service_item: 1
+                    'is_stock_item': 0
                 }
             };
         };
         frm.fields_dict['product_type_table'].grid.get_field('product_item').get_query = function(doc, cdt, cdn) {
             return {
                 filters: {
-                    custom_is_car_parts: 1
+                    'is_stock_item': 1
                 }
             };
         };
     }
 });
 
+//item pricelist mathi rate fatch
 frappe.ui.form.on('Service Type Table', {
     service_item: function(frm, cdt, cdn) {
         let row = locals[cdt][cdn];

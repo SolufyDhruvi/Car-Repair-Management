@@ -1,21 +1,91 @@
-# import frappe
+import frappe
+from frappe.model.document import Document
+from frappe.utils import add_days, nowdate
+
+def update_task_with_customer_order_items(task_name):
+	task = frappe.get_doc("Task", task_name)
+
+	if not task.custom_customer_order_form:
+		return
+	
+	customer_order_name = task.custom_customer_order_form
+	
+	service_items = frappe.get_all("Service Type Table",{"parent": customer_order_name},["qty", "rate","service_item","amount"])
+
+	product_items = frappe.get_all("Product Type Table",{"parent": customer_order_name},["qty", "rate","product_item","amount","warranty"])
+
+	task.set("custom_service_type", [])
+	task.set("custom_product_type", [])
+
+	for item in service_items:
+		task.append("custom_service_type", {
+			# "item_code": item.item_code,
+			"qty": item.qty,
+			"rate": item.rate,
+			"service_item":item.service_item,
+			"amount":item.amount
+
+		})
+
+	for item in product_items:
+		task.append("custom_product_type", {
+			# "item_code": item.item_code,
+			"qty": item.qty,
+			"rate": item.rate,
+			"product_item":item.product_item,
+			"amount":item.amount,
+			"warranty":item.warranty
+
+		})
+
+	task.save()
+	frappe.db.commit()
+
+def create_project_from_template_on_sales_order(doc, method=None):
+	if doc.custom_project_template and not doc.project:
+		template = frappe.get_doc("Project Template", doc.custom_project_template)
+
+		project = frappe.new_doc("Project")
+		project.project_name = f"{doc.name} - {doc.customer}"
+		project.customer = doc.customer
+		project.project_template = doc.custom_project_template
+		project.status = "Open"
+		project.sales_order = doc.name
+		project.save()
+
+		doc.db_set("project", project.name)
+
+		tasks = frappe.get_all("Task", filters={"project": project.name}, fields=["name"])
+
+		for task in tasks:
+			frappe.db.set_value("Task", task.name, {
+				"custom_sales_order": doc.name,
+				"custom_customer_order_form": doc.custom_customer_order_form
+			})
+			update_task_with_customer_order_items(task.name)
+
+		return project.name
+
+def on_sales_order_submit(doc, method=None):
+	doc.db_set("status", "Open")
 
 
-# @frappe.whitelist()
-# def create_project_from_template_in_so(sales_order_name, custom_project_template):
-#     sales_order = frappe.get_doc("Sales Order", sales_order_name)
+def sales_order_on_submit(doc, method=None):
+	create_project_from_template_on_sales_order(doc, method=None)
+	on_sales_order_submit(doc, method=None)
 
-#     if not custom_project_template:
-#         frappe.throw("Project Template is required.")
+	
+#fatch customer order form id quotation to sales order
+# and from Sales Order to Sales Invoice
+def before_save(doc, method=None):
+		# Quotation → Sales Order
+	if doc.doctype == "Sales Order" and doc.quotation and not doc.custom_customer_order_form:
+		quotation = frappe.get_doc("Quotation", doc.quotation)
+		if quotation.custom_customer_order_form:
+			doc.custom_customer_order_form = quotation.custom_customer_order_form
 
-#     project = frappe.new_doc("Project")
-#     # project.project_name = f"{sales_order.name} - {sales_order.customer}"
-#     project.custom_project_template = custom_project_template
-#     project.customer = sales_order.customer
-#     project.sales_order = sales_order.name
-#     project.status = "Open"
-#     project.save()
-
-#     sales_order.db_set("project", project.name)
-
-#     return project.name
+	# Sales Order → Sales Invoice
+	if doc.doctype == "Sales Invoice" and doc.sales_order and not doc.custom_customer_order_form:
+		sales_order = frappe.get_doc("Sales Order", doc.sales_order)
+		if sales_order.custom_customer_order_form:
+			doc.custom_customer_order_form = sales_order.custom_customer_order_form
