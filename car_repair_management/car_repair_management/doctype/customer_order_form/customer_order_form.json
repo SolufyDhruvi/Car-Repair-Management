@@ -38,7 +38,11 @@
   "service_type_section",
   "service_type_table",
   "product_type_section",
-  "product_type_table"
+  "product_type_table",
+  "service_mode_selection_tab",
+  "section_break_nqat",
+  "use_project_template",
+  "project_template"
  ],
  "fields": [
   {
@@ -244,11 +248,34 @@
    "fieldtype": "Table",
    "label": "Vehicle Detail",
    "options": "Vehicle Detail"
+  },
+  {
+   "fieldname": "section_break_nqat",
+   "fieldtype": "Section Break",
+   "label": "Service Mode Selection"
+  },
+  {
+   "default": "0",
+   "fieldname": "use_project_template",
+   "fieldtype": "Check",
+   "label": "Use Project Template"
+  },
+  {
+   "depends_on": "eval:doc.use_project_template==1",
+   "fieldname": "project_template",
+   "fieldtype": "Link",
+   "label": "Project Template",
+   "options": "Project Template"
+  },
+  {
+   "fieldname": "service_mode_selection_tab",
+   "fieldtype": "Tab Break",
+   "label": "Service Mode Selection"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-05-27 11:24:20.468853",
+ "modified": "2025-05-27 15:25:18.345429",
  "modified_by": "Administrator",
  "module": "car_repair_management",
  "name": "Customer Order Form",

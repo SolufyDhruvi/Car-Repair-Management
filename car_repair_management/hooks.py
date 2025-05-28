@@ -46,7 +46,7 @@ app_license = "mit"
 doctype_js = {"Job Card" : "car_repair_management/customization/job_card.js",
 			  "Sales Order":"car_repair_management/customization/sales_order/sales_order.js",
 			  "Task":"car_repair_management/customization/task/task.js",
-              "Customer":"car_repair_management/customization/customer/customer.js" }
+			  "Customer":"car_repair_management/customization/customer/customer.js" }
 			  
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
@@ -143,15 +143,20 @@ doctype_js = {"Job Card" : "car_repair_management/customization/job_card.js",
 
 doc_events = {
 	"Sales Order": {
-		# "before_insert": "car_repair_management.car_repair_management.customization.sales_order.sales_order.map_pre_checklist_to_sales_order",
+		# "before_save": "car_repair_management.car_repair_management.customization.sales_order.sales_order.before_save",
 		"on_submit": "car_repair_management.car_repair_management.customization.sales_order.sales_order.sales_order_on_submit"
 	},
 	"Task": {
 		"on_update": "car_repair_management.car_repair_management.customization.task.task.on_task_update"
 	},
 	"Sales Invoice":{
-		"before_save":"car_repair_management.car_repair_management.customization.sales_invoice.sales_invoice.post_check_list_fatch"
+		"before_save":"car_repair_management.car_repair_management.customization.sales_invoice.sales_invoice.post_check_list_fatch",
+        "on_submit":"car_repair_management.car_repair_management.customization.sales_invoice.sales_invoice.fatch_serviceamount"
 	}
+	# "Customer Order Form": {
+	# 	"on_save": "car_repair_management.customization.customer_order_form.customer_order_form.update_customer_service_info"
+	# }
+	
 	# "*": {
 	# 	"on_update": "method",
 	# 	"on_cancel": "method",

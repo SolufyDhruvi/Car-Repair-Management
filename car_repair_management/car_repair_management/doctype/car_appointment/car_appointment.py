@@ -3,8 +3,6 @@
 
 import frappe
 from frappe.model.document import Document
-
-
 class CarAppointment(Document):
 	def validate(self):
 		for row in self.vehicle_detail:
@@ -29,8 +27,7 @@ class CarAppointment(Document):
 			customer_order.append("vehicle_detail", {
 				"license_plate": row.license_plate
 			})
-
-		# customer_order.insert()
+			
 		customer_order.save()
 		return customer_order.name
 
