@@ -153,9 +153,7 @@ doc_events = {
 		"before_save":"car_repair_management.car_repair_management.customization.sales_invoice.sales_invoice.post_check_list_fatch",
         "on_submit":"car_repair_management.car_repair_management.customization.sales_invoice.sales_invoice.fatch_serviceamount"
 	}
-	# "Customer Order Form": {
-	# 	"on_save": "car_repair_management.customization.customer_order_form.customer_order_form.update_customer_service_info"
-	# }
+	
 	
 	# "*": {
 	# 	"on_update": "method",
