@@ -1,0 +1,109 @@
+{
+ "Sales Invoice": [
+  {
+   "depends_on": "eval:doc.custom_post_check_list",
+   "dt": "Sales Invoice",
+   "fieldname": "custom_battery_status",
+   "fieldtype": "Select",
+   "insert_after": "custom_tyre_condition",
+   "label": "Battery Status",
+   "module": "car_repair_management",
+   "options": "\nGood\nWeak\nNeeds Replacement",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.custom_post_check_list",
+   "dt": "Sales Invoice",
+   "fieldname": "custom_tyre_condition",
+   "fieldtype": "Select",
+   "insert_after": "custom_body_damage",
+   "label": "Tyre Condition",
+   "module": "car_repair_management",
+   "options": "\nGood\nWorn\nDamaged",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.custom_post_check_list",
+   "dt": "Sales Invoice",
+   "fieldname": "custom_body_damage",
+   "fieldtype": "Small Text",
+   "insert_after": "custom_oil_level",
+   "label": "Body Damage",
+   "module": "car_repair_management",
+   "read_only": 1
+  },
+  {
+   "dt": "Sales Invoice",
+   "fieldname": "custom_column_break_qq7fm",
+   "fieldtype": "Column Break",
+   "insert_after": "custom_engine_status",
+   "module": "car_repair_management"
+  },
+  {
+   "depends_on": "eval:doc.custom_post_check_list",
+   "dt": "Sales Invoice",
+   "fieldname": "custom_oil_level",
+   "fieldtype": "Select",
+   "insert_after": "custom_column_break_qq7fm",
+   "label": "Oil Level",
+   "module": "car_repair_management",
+   "options": "\nFull\nMedium\nLow",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.custom_post_check_list",
+   "dt": "Sales Invoice",
+   "fieldname": "custom_engine_status",
+   "fieldtype": "Select",
+   "insert_after": "custom_odometer_reading",
+   "label": "Engine Status",
+   "module": "car_repair_management",
+   "options": "\nOK\nMinor Issue\nMajor Issue",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.custom_post_check_list",
+   "dt": "Sales Invoice",
+   "fieldname": "custom_odometer_reading",
+   "fieldtype": "Int",
+   "insert_after": "custom_vehicle_condition_summary",
+   "label": "Odometer Reading",
+   "module": "car_repair_management",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.custom_post_check_list;",
+   "dt": "Sales Invoice",
+   "fieldname": "custom_vehicle_condition_summary",
+   "fieldtype": "Small Text",
+   "insert_after": "custom_section_break_cm8il",
+   "label": "Vehicle Condition Summary",
+   "module": "car_repair_management",
+   "read_only": 1
+  },
+  {
+   "dt": "Sales Invoice",
+   "fieldname": "custom_section_break_cm8il",
+   "fieldtype": "Section Break",
+   "insert_after": "amended_from",
+   "module": "car_repair_management"
+  },
+  {
+   "dt": "Sales Invoice",
+   "fieldname": "custom_post_check_list",
+   "fieldtype": "Check",
+   "insert_after": "custom_customer_order_form",
+   "label": "Post Check List",
+   "module": "car_repair_management"
+  },
+  {
+   "dt": "Sales Invoice",
+   "fieldname": "custom_customer_order_form",
+   "fieldtype": "Link",
+   "insert_after": "due_date",
+   "label": "Customer Order Form",
+   "module": "car_repair_management",
+   "options": "Customer Order Form"
+  }
+ ]
+}

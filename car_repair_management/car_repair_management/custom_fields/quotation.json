@@ -1,0 +1,13 @@
+{
+ "Quotation": [
+  {
+   "dt": "Quotation",
+   "fieldname": "custom_customer_order_form",
+   "fieldtype": "Link",
+   "insert_after": "valid_till",
+   "label": "Customer Order Form",
+   "module": "car_repair_management",
+   "options": "Customer Order Form"
+  }
+ ]
+}

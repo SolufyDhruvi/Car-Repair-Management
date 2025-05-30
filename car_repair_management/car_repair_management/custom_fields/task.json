@@ -1,0 +1,65 @@
+{
+ "Task": [
+  {
+   "dt": "Task",
+   "fieldname": "custom_task_item_used",
+   "fieldtype": "Table",
+   "insert_after": "custom_section_break_3x3i5",
+   "label": "Task Item Used",
+   "module": "car_repair_management",
+   "options": "Task Item Used"
+  },
+  {
+   "dt": "Task",
+   "fieldname": "custom_section_break_3x3i5",
+   "fieldtype": "Section Break",
+   "insert_after": "custom_product_type",
+   "label": "Task Item Used",
+   "module": "car_repair_management"
+  },
+  {
+   "dt": "Task",
+   "fieldname": "custom_product_type",
+   "fieldtype": "Table",
+   "insert_after": "custom_service_type",
+   "label": "Product Type",
+   "module": "car_repair_management",
+   "options": "Product Type Table"
+  },
+  {
+   "dt": "Task",
+   "fieldname": "custom_service_type",
+   "fieldtype": "Table",
+   "insert_after": "custom_section_break_spobm",
+   "label": "Service Type",
+   "module": "car_repair_management",
+   "options": "Service Type Table"
+  },
+  {
+   "dt": "Task",
+   "fieldname": "custom_section_break_spobm",
+   "fieldtype": "Section Break",
+   "insert_after": "custom_customer_order_form",
+   "label": "Order Items ",
+   "module": "car_repair_management"
+  },
+  {
+   "dt": "Task",
+   "fieldname": "custom_customer_order_form",
+   "fieldtype": "Link",
+   "insert_after": "custom_sales_order",
+   "label": "Customer Order Form",
+   "module": "car_repair_management",
+   "options": "Customer Order Form"
+  },
+  {
+   "dt": "Task",
+   "fieldname": "custom_sales_order",
+   "fieldtype": "Link",
+   "insert_after": "completed_on",
+   "label": "Sales Order",
+   "module": "car_repair_management",
+   "options": "Sales Order"
+  }
+ ]
+}

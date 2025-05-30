@@ -9,7 +9,7 @@ app_license = "mit"
 # ------------------
 
 # required_apps = []
-
+after_migrate = "car_repair_management.migrate.after_migrate"
 # Each item in the list will be shown as an app in the apps page
 # add_to_apps_screen = [
 # 	{

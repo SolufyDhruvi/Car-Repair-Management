@@ -1,0 +1,23 @@
+{
+ "Sales Order": [
+  {
+   "dt": "Sales Order",
+   "fieldname": "custom_customer_order_form",
+   "fieldtype": "Link",
+   "insert_after": "delivery_date",
+   "label": "Customer Order Form",
+   "module": "car_repair_management",
+   "options": "Customer Order Form"
+  },
+  {
+   "dt": "Sales Order",
+   "fetch_from": "custom_customer_order_form.project_template",
+   "fieldname": "custom_project_template",
+   "fieldtype": "Link",
+   "insert_after": "amended_from",
+   "label": "Project Template",
+   "module": "car_repair_management",
+   "options": "Project Template"
+  }
+ ]
+}

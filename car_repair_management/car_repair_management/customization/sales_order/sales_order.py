@@ -76,11 +76,9 @@ def create_project_from_template_on_sales_order(doc, method=None):
 		project.save()
 		doc.db_set("project", project.name)
 
-		# Fetch service and product items from Customer Order Form
 		service_items = frappe.get_all("Service Type Table", {"parent": customer_order_form},["qty", "rate", "service_item", "amount"])
 		product_items = frappe.get_all("Product Type Table", {"parent": customer_order_form},["qty", "rate", "product_item", "amount", "warranty"])
 
-		# Create one task per service item
 		for s_item in service_items:
 			item_name = frappe.db.get_value("Item", s_item.service_item, "item_name")
 
