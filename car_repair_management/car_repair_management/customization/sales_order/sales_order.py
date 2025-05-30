@@ -45,7 +45,6 @@ def create_project_from_template_on_sales_order(doc, method=None):
 	if not customer_order_form:
 		frappe.throw("Customer Order Form is required to create project/tasks")
 
-	# Use directly from Sales Order field
 	project_template = doc.custom_project_template
 	use_template = True if project_template else False
 
@@ -56,7 +55,6 @@ def create_project_from_template_on_sales_order(doc, method=None):
 	project.status = "Open"
 
 	if use_template:
-		# Use project template to create project and tasks
 		project.project_template = project_template
 		project.save()
 
@@ -72,7 +70,6 @@ def create_project_from_template_on_sales_order(doc, method=None):
 			update_task_with_customer_order_items(task.name)
 
 	else:
-		# No template, create tasks dynamically from service/product tables
 		project.save()
 		doc.db_set("project", project.name)
 
@@ -95,8 +92,7 @@ def create_project_from_template_on_sales_order(doc, method=None):
 				"amount": s_item.amount
 			})
 			task.save()
-
-		# Create one task per product item
+			
 		for p_item in product_items:
 			item_name = frappe.db.get_value("Item", p_item.product_item, "item_name")
 
